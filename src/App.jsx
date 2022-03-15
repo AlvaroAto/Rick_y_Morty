@@ -4,25 +4,20 @@ import React from "react";
 
 
 //containers
+import Header from "./containers/Header/Header";
+import Nav from "./containers/Header/Nav/Nav";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header>
+        <Nav color="white">
+            <a href="./">Inicio</a>
+            <a href="./">Contacto</a>
+        </Nav>
+      </Header>
+    </>
   );
 }
 
