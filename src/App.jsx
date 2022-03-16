@@ -4,7 +4,7 @@ import React, { useState,useEffect } from "react";
 import background from './assets/img/space.jpg';
 
 //components
-
+import CharacterItem from "./containers/CharacterItem/CharacterItem";
 
 //containers
 import Header from "./containers/Header/Header";
@@ -19,17 +19,25 @@ import { useCharacters } from './services/rickandmorty/rickandmorty-services';
 function App() {
 
   const [characterList, setCharacterList] = useState([]);
+  const [selectedCharacter, setSelectedCharacter] = useState({});
 
   const characterService = useCharacters();
   useEffect(() => {
     const getCharacterList = async () => {
-      const characters = await characterService.getCharacter();
+      const characters = await characterService.getCharacters();
       const { results } = await characters.data;
 
-      setCharacterList();
+      setCharacterList(results);
     }
     getCharacterList();
   },[])
+
+  const handleCharacter = async (url) => {
+    const character = await characterService.getCharacter(url);
+    const characterInfo = await character.data;
+    setSelectedCharacter(characterInfo);
+    // handleModal(true);
+  };
 
   return (
     <>      
@@ -50,9 +58,12 @@ function App() {
               {
                 characterList.map((character, index) => {
                   return (
-                    <li key={index}>
-
-                    </li>
+                    <CharacterItem 
+                      key={index} 
+                      name={character.name}
+                      image={character.image}
+                      handleClick={() => handleCharacter(character.url)}
+                    />
                   )
                 })
               }

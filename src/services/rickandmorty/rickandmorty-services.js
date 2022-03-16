@@ -1,11 +1,12 @@
 import { useState } from 'react'; 
 import { getCharactersRequest } from '../../lib/rickandmorty-api/requests/get-Characters-Request'; 
+import { getCharacterRequest } from '../../lib/rickandmorty-api/requests/get-Character-Request';
 
 export const useCharacters = () => {
     const [loading, setLoading] = useState(true);
     const [characterListError, setCharacterListError] =useState("");
 
-    const getCharacter = async () => {
+    const getCharacters = async () => {
         try{
             const characterResponse = await getCharactersRequest(); 
             setLoading(false);
@@ -16,7 +17,19 @@ export const useCharacters = () => {
         }
     };
 
+    const getCharacter = async (url) => {
+        try{
+            const characterResponse = await getCharacterRequest(url); 
+            setLoading(false);
+            return characterResponse; 
+        }catch(error){
+            setCharacterListError(error);
+            setLoading(false);
+        }
+    };
+
     return {
+        getCharacters,
         getCharacter,
         loading,
         characterListError
