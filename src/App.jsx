@@ -10,6 +10,7 @@ import background from './assets/img/space.jpg';
 import Header from "./containers/Header/Header";
 import Nav from "./containers/Nav/Nav";
 import Main from "./containers/Main/Main";
+import CharacterList from "./containers/CharactersList/CharactersList";
 
 //hooks
 import { useCharacters } from './services/rickandmorty/rickandmorty-services';
@@ -45,6 +46,17 @@ function App() {
         backgroundRepeat: 'repeat'
       }}>
           
+          <CharacterList>
+              {
+                characterList.map((character, index) => {
+                  return (
+                    <li key={index}>
+
+                    </li>
+                  )
+                })
+              }
+          </CharacterList>
       </Main>
 
       
