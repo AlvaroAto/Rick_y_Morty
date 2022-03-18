@@ -5,7 +5,8 @@ const SeeMoreContainer = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin: 10px 0px;
+    width: fit-content;
+    margin: 10px auto;
     padding: 5px;
     background-color: #0A94CF;
     border: 1px solid #EFEFEF;
@@ -14,6 +15,10 @@ const SeeMoreContainer = styled.div`
     align-self: stretch;
     span{
         text-align: center;
+        font-family: PatrickHandSC-Regular; 
+        color: white;
+        font-weight: 600;
+        letter-spacing: 1px;
     }
 `;
 
