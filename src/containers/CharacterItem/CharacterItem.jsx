@@ -1,21 +1,31 @@
 import React from "react";
 
 //components
-import HeaderH3 from "../../components/Text/Headers/HeaderH3/HeaderH3";
 import SeeMore from "../../components/Text/SeeMore/SeeMore";
 
 //styled-components
 import CharacterItemContainer from "./CharacterItem-style";
 
-const CharacterItem = ({ name, image, handleClick, buttonText }) => {
+const CharacterItem = ({ name, sheet, image, handleClick, buttonText }) => {
     return(       
         <CharacterItemContainer>
-            <img src={ image } alt={ name } />
-            <HeaderH3>{ name }</HeaderH3>
-            <SeeMore 
-                onClick={() => handleClick()} 
-                buttonText={buttonText}
-            />            
+            <div>
+                <div className="imageBox">
+                    <div className="image">
+                        <img src={ image } alt={ name } />
+                    </div>
+                </div>
+                <div className="box">
+                    <strong>{ name }</strong>
+                </div>
+                <div className="box">
+                    <p>{ sheet }</p>
+                </div>
+                <SeeMore 
+                    onClick={() => handleClick()} 
+                    buttonText={buttonText}
+                />            
+            </div>
         </CharacterItemContainer>        
     );
 };
