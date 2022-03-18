@@ -3,10 +3,10 @@ import React from "react";
 //styled-components
 import SeeMoreContainer from "./SeeMore-style";
 
-const SeeMore = ({ buttonText }) => {
+const SeeMore = ({ handleClick,buttonText }) => {
     return(
         <SeeMoreContainer>
-            <span>{ buttonText }</span>
+            <span onClick={() => handleClick()}>{ buttonText }</span>
         </SeeMoreContainer>
     );
 };

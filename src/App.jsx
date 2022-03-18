@@ -1,7 +1,6 @@
 import React, { useState,useEffect } from "react";
 
 //assets
-import background from './assets/img/space.jpg';
 
 //components
 import CharacterItem from "./containers/CharacterItem/CharacterItem";
@@ -47,13 +46,7 @@ function App() {
             <a href="./">Contacto</a>
         </Nav>
       </Header>
-      <Main style={{ 
-        backgroundImage: `URL(${ background })`,
-        backgroundPosition: 'center',
-        // backgroundSize: 'cover',
-        backgroundRepeat: 'repeat'
-      }}>
-          
+      <Main>
           <CharacterList>
               {
                 characterList.map((character, index) => {
@@ -61,8 +54,10 @@ function App() {
                     <CharacterItem 
                       key={index} 
                       name={character.name}
+                      sheet={`Para ver la ficha completa de `+character.name+` pulse en ver mas`}
                       image={character.image}
                       handleClick={() => handleCharacter(character.url)}
+                      buttonText="ver más"
                     />
                   )
                 })
