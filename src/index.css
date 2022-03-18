@@ -35,8 +35,3 @@ code {
     monospace;
 }
 
-@keyframes type{
-  from{
-      width:0;
-  }
-}
