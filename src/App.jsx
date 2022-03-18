@@ -63,6 +63,7 @@ function App() {
                       name={character.name}
                       image={character.image}
                       handleClick={() => handleCharacter(character.url)}
+                      buttonText="Ver mas"
                     />
                   )
                 })
