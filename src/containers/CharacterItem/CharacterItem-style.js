@@ -1,7 +1,19 @@
 import styled from "styled-components";
+import { keyframes } from "styled-components";
 
 //assets
 // import borde from '../'
+
+const type = keyframes`
+    from {
+        with: 0;
+    }
+
+    to {
+        
+    }
+`;
+
 
 const CharacterItemContainer = styled.li`
     display: flex;
@@ -24,21 +36,18 @@ const CharacterItemContainer = styled.li`
         flex-grow: 1;
         margin: 0px 10px;
     }
-    div.image{
-        flex: none;
-        order: 1;
+    div.image{        
         -webkit-clip-path: polygon(10% 0, 90% 0, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0 90%, 0 10%);
         clip-path: polygon(10% 0, 90% 0, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0 90%, 0 10%);
         filter: drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.25));
         background-color: #fff;
         align-self: stretch;
         flex-grow: 1;
-        margin: 0px 10px;
+        margin: 10px 10px;
     }
     img{
         width:130px;
         height:150px;
-        background: url(1.jpg);
     }
     div.box{
         display: flex;
@@ -68,8 +77,8 @@ const CharacterItemContainer = styled.li`
         text-align: center;
         text-transform: uppercase;
         color: white;
-        animation: type 4s steps(60,end);
-
+        animation: ${type} 8s steps(60,end);
+        
         &:hover{
             font-family:PatrickHand-Regular;
             text-transform: capitalize;

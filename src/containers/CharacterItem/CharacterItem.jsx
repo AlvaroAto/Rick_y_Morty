@@ -16,7 +16,7 @@ const CharacterItem = ({ name, sheet, image, handleClick, buttonText }) => {
                     </div>
                 </div>
                 <div className="box">
-                    <strong>{ name }</strong>
+                    <strong className="characterTitleName">{ name }</strong>
                 </div>
                 <div className="box">
                     <p>{ sheet }</p>
