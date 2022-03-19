@@ -6,8 +6,8 @@ const SeeMoreContainer = styled.div`
     justify-content: center;
     align-items: center;
     width: fit-content;
-    margin: 10px auto;
-    padding: 5px;
+    margin: 0 auto 8px auto;
+    padding: 5px 20px;
     background-color: #0A94CF;
     border: 1px solid #EFEFEF;
     box-sizing: border-box;

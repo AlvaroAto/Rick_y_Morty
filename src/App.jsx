@@ -56,6 +56,7 @@ function App() {
                       name={character.name}
                       sheet={`Para ver la ficha completa de `+character.name+` pulse en ver mas`}
                       image={character.image}
+                      vertical={character.species+` `+character.status}
                       handleClick={() => handleCharacter(character.url)}
                       buttonText="ver más"
                     />
