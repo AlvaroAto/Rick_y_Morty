@@ -9,22 +9,24 @@ import CharacterItemContainer from "./CharacterItem-style";
 const CharacterItem = ({ name, sheet, image, handleClick, buttonText }) => {
     return(       
         <CharacterItemContainer>
-            <div>
+            <div className="card">
                 <div className="imageBox">
-                    <div className="image">
+                    <div className="image" >
                         <img src={ image } alt={ name } />
                     </div>
                 </div>
-                <div className="box">
-                    <strong className="characterTitleName">{ name }</strong>
+                <div className="wrapItemText">
+                    <div className="textBox">
+                        <strong className="characterTitleName">{ name }</strong>
+                    </div>
+                    <div className="textBox">
+                        <p>{ sheet }</p>
+                    </div>
+                    <SeeMore 
+                        onClick={() => handleClick()} 
+                        buttonText={buttonText}
+                    />            
                 </div>
-                <div className="box">
-                    <p>{ sheet }</p>
-                </div>
-                <SeeMore 
-                    onClick={() => handleClick()} 
-                    buttonText={buttonText}
-                />            
             </div>
         </CharacterItemContainer>        
     );

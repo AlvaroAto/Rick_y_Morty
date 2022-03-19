@@ -4,7 +4,7 @@ const LogoContainer = styled.div`
     max-width: 90px;
     min-width: 50px;
     .logo-image{
-        max-width:100%;
+        max-width:60%;
     }
 `;
 
