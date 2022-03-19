@@ -8,10 +8,6 @@ const type = keyframes`
     from {
         with: 0;
     }
-
-    to {
-        
-    }
 `;
 
 
@@ -78,7 +74,7 @@ const CharacterItemContainer = styled.li`
         text-transform: uppercase;
         color: white;
         animation: ${type} 8s steps(60,end);
-        
+        transition: 4s;
         &:hover{
             font-family:PatrickHand-Regular;
             text-transform: capitalize;
