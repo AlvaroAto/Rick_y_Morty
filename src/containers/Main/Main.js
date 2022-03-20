@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 //assets
-import background from '../../assets/img/space.webp';
+import background from '../../assets/img/fondo_circuito.jpg';
 
 const MainContainer = styled.main`
     display: flex;

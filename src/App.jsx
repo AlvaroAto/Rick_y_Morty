@@ -11,6 +11,7 @@ import Nav from "./containers/Nav/Nav";
 import Main from "./containers/Main/Main";
 import CharacterList from "./containers/CharactersList/CharactersList";
 import CharacterItem from "./containers/CharacterItem/CharacterItem";
+import ModalContent from "./containers/MainModal/ModalContent/ModalContent";
 
 //hooks
 import { useModal } from "./hooks/use-modal";
@@ -44,7 +45,7 @@ function App() {
   };
 
   return (
-    <>      
+    <Main>      
       <Header>
         <Nav color="white">
             <a href="./">Inicio</a>
@@ -72,28 +73,27 @@ function App() {
       </Main>
       {
         modalOpened && (
-          <MainModal handleClick={()=> handleModal(false)}>
+          <MainModal 
+            handleClick={()=> handleModal(false)}
+            img={selectedCharacter.image}
+          >
             {
-              selectedCharacter.map((character, index) =>{
-
-                return(
-                  <>
-                    <p key={ index }>Numero de expediente: { character.id }</p>
-                    <h2>Nombre: { character.name }</h2>
-                    <p>Estado: { character.status }</p>
-                    <p>Especie: { character.species }</p>
-                    (character.type.length) && (<p>Tipo: { character.type }</p>)
-                    <p>Genero: { character.gender }</p>
-                    <p>Origen: {character.origin["name"]}</p>
-                    <p>Localización: {character.location["name"]}</p>
-                  </>
-                );
-              })
+              <ModalContent
+                id={ selectedCharacter.id }
+                name={ selectedCharacter.name }
+                status={ selectedCharacter.status }
+                specie={ selectedCharacter.specie }                
+                type={ selectedCharacter.type }
+                gender={ selectedCharacter.gender }
+                origin={ selectedCharacter.origin[`name`]}
+                location={ selectedCharacter.location[`name`]}
+              >
+              </ModalContent>
             }
           </MainModal>
         )
       }      
-    </>
+    </Main>
   );
 }
 

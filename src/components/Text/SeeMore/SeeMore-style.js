@@ -13,13 +13,14 @@ const SeeMoreContainer = styled.div`
     box-sizing: border-box;
     border-radius: 15px;
     align-self: stretch;
+    cursor:pointer;
     span{
-        text-align: center;
-        font-family: PatrickHandSC-Regular; 
-        color: white;
-        font-weight: 600;
-        letter-spacing: 1px;
-    }
+            text-align: center;
+            font-family: PatrickHandSC-Regular; 
+            color: white;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
 `;
 
 export default SeeMoreContainer;

@@ -6,7 +6,7 @@ import SeeMore from "../../components/Text/SeeMore/SeeMore";
 //styled-components
 import CharacterItemContainer from "./CharacterItem-style";
 
-const CharacterItem = ({ name, sheet, image, vertical, handleClick, buttonText }) => {
+const CharacterItem = ({ name, sheet, image, vertical, buttonText, handleClick }) => {
     return(       
         <CharacterItemContainer>
             <div className="textBoxTitle">
@@ -26,10 +26,14 @@ const CharacterItem = ({ name, sheet, image, vertical, handleClick, buttonText }
                     <div className="textBoxBody">
                         <p>{ sheet }</p>
                     </div>
-                    <SeeMore 
-                        onClick={() => handleClick()} 
+                    {/* <SeeMore 
                         buttonText={buttonText}
-                    />            
+                        onClick={() => handleClick()} 
+                    />             */}
+                    <div className="buttonSeeMore" onClick={() => handleClick()}>
+                        <span>{ buttonText }</span>
+                    </div>
+                    
                 </div>
             </div>            
         </CharacterItemContainer>        
