@@ -3,20 +3,24 @@ import React, { useState,useEffect } from "react";
 //assets
 
 //components
-import CharacterItem from "./containers/CharacterItem/CharacterItem";
+import HeaderH2 from "./components/Text/Headers/HeaderH2"
 
 //containers
 import Header from "./containers/Header/Header";
 import Nav from "./containers/Nav/Nav";
 import Main from "./containers/Main/Main";
 import CharacterList from "./containers/CharactersList/CharactersList";
+import CharacterItem from "./containers/CharacterItem/CharacterItem";
 
 //hooks
+import { useModal } from "./hooks/use-modal";
 import { useCharacters } from './services/rickandmorty/rickandmorty-services';
+import MainModal from "./containers/MainModal/MainModal";
 
 
 function App() {
 
+  const { handleModal, modalOpened} = useModal();
   const [characterList, setCharacterList] = useState([]);
   const [selectedCharacter, setSelectedCharacter] = useState({});
 
@@ -65,7 +69,35 @@ function App() {
               }
           </CharacterList>
       </Main>
+      {
+        modalOpened && (
+          <MainModal handleClick={()=> handleModal(false)}>
+            {
+              selectedCharacter.map((character, index) =>{
 
+                return(
+                  <HeaderH2 key={index} text={"Numero de expediente: "+character.id}></HeaderH2>
+                  // "id": 1,
+                  // "name": "Rick Sanchez",
+                  // "status": "Alive",
+                  // "species": "Human",
+                  // "type": "",
+                  // "gender": "Male",
+                  // "origin": {
+                  //     "name": "Earth (C-137)",
+                  //     "url": "https://rickandmortyapi.com/api/location/1"
+                  // },
+                  // "location": {
+                  //     "name": "Citadel of Ricks",
+                  //     "url": "https://rickandmortyapi.com/api/location/3"
+                  // },
+                  // "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+                );
+              })
+            }
+          </MainModal>
+        )
+      }
       
     </>
   );
