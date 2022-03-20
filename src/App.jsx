@@ -3,7 +3,7 @@ import React, { useState,useEffect } from "react";
 //assets
 
 //components
-import HeaderH2 from "./components/Text/Headers/HeaderH2"
+// import HeaderH2 from "./components/Text/Headers/HeaderH2";
 
 //containers
 import Header from "./containers/Header/Header";
@@ -20,7 +20,8 @@ import MainModal from "./containers/MainModal/MainModal";
 
 function App() {
 
-  const { handleModal, modalOpened} = useModal();
+  const { handleModal, modalOpened } = useModal();
+
   const [characterList, setCharacterList] = useState([]);
   const [selectedCharacter, setSelectedCharacter] = useState({});
 
@@ -39,7 +40,7 @@ function App() {
     const character = await characterService.getCharacter(url);
     const characterInfo = await character.data;
     setSelectedCharacter(characterInfo);
-    // handleModal(true);
+    handleModal(true);
   };
 
   return (
@@ -76,29 +77,22 @@ function App() {
               selectedCharacter.map((character, index) =>{
 
                 return(
-                  <HeaderH2 key={index} text={"Numero de expediente: "+character.id}></HeaderH2>
-                  // "id": 1,
-                  // "name": "Rick Sanchez",
-                  // "status": "Alive",
-                  // "species": "Human",
-                  // "type": "",
-                  // "gender": "Male",
-                  // "origin": {
-                  //     "name": "Earth (C-137)",
-                  //     "url": "https://rickandmortyapi.com/api/location/1"
-                  // },
-                  // "location": {
-                  //     "name": "Citadel of Ricks",
-                  //     "url": "https://rickandmortyapi.com/api/location/3"
-                  // },
-                  // "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+                  <>
+                    <p key={ index }>Numero de expediente: { character.id }</p>
+                    <h2>Nombre: { character.name }</h2>
+                    <p>Estado: { character.status }</p>
+                    <p>Especie: { character.species }</p>
+                    (character.type.length) && (<p>Tipo: { character.type }</p>)
+                    <p>Genero: { character.gender }</p>
+                    <p>Origen: {character.origin["name"]}</p>
+                    <p>Localización: {character.location["name"]}</p>
+                  </>
                 );
               })
             }
           </MainModal>
         )
-      }
-      
+      }      
     </>
   );
 }

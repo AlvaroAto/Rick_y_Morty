@@ -49,10 +49,7 @@ align-items: center;
     max-width:100%;
     max-height:300px;
     overflow: auto;
-    padding:10px 20px;
-    li{
-        margin-bottom:10px;
-    }
+    padding:10px 20px;    
 }
 `;
 
