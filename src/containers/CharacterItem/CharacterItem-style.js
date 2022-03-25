@@ -86,7 +86,7 @@ const CharacterItemContainer = styled.li`
             writing-mode: vertical-lr;
             text-orientation: upright;
             line-height:0px;
-            font-family: 'Alien Script';
+            font-family: Alien Script;
             text-transform: uppercase;
             background: #00B1B7;
             border: 1.48472px solid #EFEFEF;
