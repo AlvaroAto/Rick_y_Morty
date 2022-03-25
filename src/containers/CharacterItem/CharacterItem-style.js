@@ -37,7 +37,7 @@ const CharacterItemContainer = styled.li`
         border-radius: 8px;
 
         strong{  
-            font-family:AlienScript-Regular;
+            font-family: AlienScript-Regular;
             font-size: 18px;    
             font-weight: bolder;   
             letter-spacing: 1px;
@@ -86,7 +86,7 @@ const CharacterItemContainer = styled.li`
             writing-mode: vertical-lr;
             text-orientation: upright;
             line-height:0px;
-            font-family: Alien Script;
+            font-family: AlienScript-Regular;
             text-transform: uppercase;
             background: #00B1B7;
             border: 1.48472px solid #EFEFEF;
