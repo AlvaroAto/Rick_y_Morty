@@ -1,5 +1,4 @@
 {
-  "homepage": "https://github.com/AlvaroAto/Rick_y_Morty.git",
   "name": "rickymorty",
   "version": "0.1.0",
   "private": true,
@@ -15,8 +14,6 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy": "CI='false' npm run build",
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
