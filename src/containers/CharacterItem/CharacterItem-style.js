@@ -89,7 +89,7 @@ const CharacterItemContainer = styled.li`
             font-family: AlienScript-Regular;
             text-transform: uppercase;
             background: #00B1B7;
-            border: 1.48472px solid #EFEFEF;
+            border: 1px solid #EFEFEF;
             box-sizing: border-box;
             margin-left:10px;
             margin-right:5px;
