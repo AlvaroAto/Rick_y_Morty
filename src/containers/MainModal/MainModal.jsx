@@ -12,7 +12,7 @@ const MainModal = ({  img, children, handleClick }) =>{
             <img src={ img } alt="" />
             <div className="modal-wrapper">
                 <div className="topbar">                    
-                    <h2>Base de datos de la Ciudadela</h2>
+                    <p>Base de datos de la Ciudadela</p>
                     <span onClick={()=> handleClick()}>X</span>
                 </div>
                 <div className="body">

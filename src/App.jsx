@@ -60,7 +60,7 @@ function App() {
                     <CharacterItem 
                       key={index} 
                       name={character.name}
-                      sheet={`Numero: `+character.id+` Para ver la ficha completa de `+character.name+` pulse en ver mas. Gracias. `}
+                      sheet={`Ficha nº: `+character.id+` Ficha completa de `+character.name+` pulsando en [Ver más].`}
                       image={character.image}
                       vertical={character.species+` `+character.status}
                       handleClick={() => handleCharacter(character.url)}

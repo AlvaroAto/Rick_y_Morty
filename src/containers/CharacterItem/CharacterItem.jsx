@@ -1,7 +1,7 @@
 import React from "react";
 
 //components
-import SeeMore from "../../components/Text/SeeMore/SeeMore";
+// import SeeMore from "../../components/Text/SeeMore/SeeMore";
 
 //styled-components
 import CharacterItemContainer from "./CharacterItem-style";
