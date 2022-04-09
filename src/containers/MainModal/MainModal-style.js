@@ -67,8 +67,7 @@ const MainModalContainer = styled.div`
     .body{
         z-index:1;
         width: 100%;
-        height: 193px;
-        
+        height: 193px;        
     }
 `;
 
