@@ -20,6 +20,11 @@ const CharacterItem = ({ name, sheet, image, vertical, buttonText, handleClick }
                     <div className="image" >
                         <img src={ image } alt={ name } />
                     </div>
+                    <div className="falseButtons">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
                 </div>
                 <div className="wrapItemText">
                     

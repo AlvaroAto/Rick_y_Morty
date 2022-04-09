@@ -8,6 +8,61 @@ from {
 }
 `;
 
+const fb1 = keyframes`
+0% {
+    width: 15px;
+}
+25%{
+    width: 50px;
+    margin-left:50px;
+}
+50%{
+    width: 110px;
+    margin-left:0px;
+    margin-right:15px;
+}
+100% {
+    width: 15px;
+    margin-left:20px;
+}
+`;
+
+const fb2 = keyframes`
+0% {
+    opacity:0;
+    width: 0px;
+    height: 0px;
+    margin-right:0;
+    border: solid 3px #A6F1FE;
+    border-radius:50%;
+    background-color:transparent;
+}
+100% {
+    opacity:1;
+    margin-right:10px;
+}
+`;
+const fb3 = keyframes`
+0% {
+    opacity:0;
+    width: 0px;
+    height: 0px;
+    margin-left:0;
+}
+100% {
+    opacity:1;
+}
+`;
+
+// const animationDuration = function(){
+    
+//     let time = Number(`0.${setInterval(Math.random(),1000/60)}`);
+//     if(time< 0.5){
+//         time=0.5;
+//     }
+//     console.log(time);
+//     return time;
+// }
 
 const CharacterItemContainer = styled.li`
     display: flex;
@@ -49,8 +104,8 @@ const CharacterItemContainer = styled.li`
             overflow: hidden;
             text-overflow: ellipsis;
             
-            animation: ${type} 4s steps(60,end);
-            // transition: 1s ease;
+            // animation: ${type} 4s steps(60,end);
+            // transition: font-family 1s ease;
 
             &:hover{
                 font-family:PatrickHand-Regular;
@@ -70,7 +125,7 @@ const CharacterItemContainer = styled.li`
         text-align: center;
         display: flex;
         justify-content:space-around;
-        align-items:center;    
+        align-items:flex-start;    
         width: 250px;
         height: 176px;
         padding-top: 48px;
@@ -82,8 +137,6 @@ const CharacterItemContainer = styled.li`
         div.verticalText{
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
             writing-mode: vertical-lr;
             text-orientation: upright;
             line-height:20px;
@@ -92,14 +145,19 @@ const CharacterItemContainer = styled.li`
             background: #00B1B7;
             border: 1px solid #EFEFEF;
             box-sizing: border-box;
-            height:85%;
-            min-width:20px;
-            
+            height:150px;
+            width:22px;
+            overflow:hidden;
+            line-height:22px;
+            margin-top:10px;
             p{
                 height:100%;
                 width:100%;
                 margin:0;
+                padding:0;
+                line-height:1.1rem;
                 &:hover{
+                    font-size:0.8rem;
                     font-family:Narcotix;
                 }
             }
@@ -107,23 +165,61 @@ const CharacterItemContainer = styled.li`
 
         div.imageBox{
             max-width: 120px;
-            height: 130px;
-            margin: 5px 0 5px 5px;            
-            -webkit-clip-path: polygon(10% 0, 90% 0, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0 90%, 0 10%);
-            clip-path: polygon(10% 0, 90% 0, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0 90%, 0 10%);
-            filter: drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.25));
-            background-color: #00B1B7;
+            height: fit-content;
             
             div.image{         
                 -webkit-clip-path: polygon(10% 0, 90% 0, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0 90%, 0 10%);
                 clip-path: polygon(10% 0, 90% 0, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0 90%, 0 10%);
                 width: 100px;
                 height: 120px;
-                margin: 5px;
+                margin: 10px 5px 0 5px;
+                background-color: #00B1B7;
+                border: solid 5px #00B1B7;
                 img{
+                    -webkit-clip-path: polygon(10% 0, 90% 0, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0 90%, 0 10%);
+                    clip-path: polygon(10% 0, 90% 0, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0 90%, 0 10%);
                     width: 100px;
                     height: 120px;
+                    overflow:hidden;
                 }
+            }
+            div.falseButtons{
+                position:relative;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                width: 100%;
+                height: 35px;
+                padding-top: 5px;
+                div:nth-child(1){
+                    position:absolute;
+                    left: 5px;
+                    width: 115px;
+                    height: 5px;
+                    border-radius:5px;
+                    background-color:#A6F1FE;
+                    animation: ${fb1} 8s linear infinite alternate;
+                }
+                div:nth-child(2){
+                    position:absolute;
+                    left:20px;
+                    width: 10px;
+                    height: 10px;
+                    background-color:#A6F1FE;
+                    border-radius:50%;
+                    animation: ${fb2} 1.5s linear 1s infinite alternate;
+                }
+                div:nth-child(3){
+                    position:absolute;
+                    right:5px;
+                    width: 5px;
+                    height: 5px;
+                    border: solid 3px #A6F1FE;
+                    border-radius:50%;
+                    background-color:transparent;
+                    animation: ${fb3} 1.5s linear 5s infinite alternate;
+                }
+                
             }
         }
         
@@ -132,17 +228,17 @@ const CharacterItemContainer = styled.li`
             flex-direction: column;
             justify-content: space-around;
             align-items: center;
-            width:100%;
-            min-height:100%;    
-            padding:10px 0 0 5px; 
+            width:115px;
+            height:100%;    
+
             .textBoxBody{
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                max-width: 130px;
+                max-width: 115px;
                 max-height: 100%;
-                margin-top: 5px;
+                margin-top: 10px;
                 overflow-x: hidden;
                 text-overflow: ellipsis;
                 background: #00686B;

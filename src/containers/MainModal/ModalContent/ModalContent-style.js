@@ -21,7 +21,6 @@ const ModalContentContainer = styled.div`
         text-align:left;
         //barra desplazamiento 
         ::-webkit-scrollbar {
-            // display: none;
             width:10px;
             height:10px;
         }
