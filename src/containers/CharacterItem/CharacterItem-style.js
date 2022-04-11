@@ -236,7 +236,7 @@ const CharacterItemContainer = styled.li`
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                max-width: 115px;
+                max-width: 98px;
                 max-height: 100%;
                 margin-top: 10px;
                 overflow-x: hidden;
