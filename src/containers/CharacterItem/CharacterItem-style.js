@@ -20,43 +20,35 @@ const marquee = keyframes`
     }
 `;
 
-const fb1 = keyframes`
-    0% {
-        width: 15px;
-        margin-left:10px;
+const fb1 = keyframes`    
+    0%{
+        stroke-dashoffset: 1;
     }
-    25%{
-        width: 10px;
-        margin-left:50px;
+    33%{
+        stroke-dashoffset: 0;
     }
-    50%{
-        width: 8px;
-        margin-left:10px;
-        margin-right:15px;
+    66%{
+        d: path("M83 12.5s-9.525.59-16.5 3c-6.182 2.137-9.825 6.06-11 7-2.5 2-2 2.5-5.5 1.5s-6.5 0-6.5 0L31 27.5 28 23s-.5-6.076.5-8c1.251-2.407 5.5-2 5.5-2h7s3.222.5 5-1.5 1.5-3 1.5-3V5L42 1H5.5L1 5v6.5");
+        stroke-dashoffset:1;
     }
-    100% {
-        width: 5px;
-        margin-left:10px;
+    100%{
+        d: path("M83 12.5s-9.525.59-16.5 3c-6.182 2.137-9.825 6.06-11 7-2.5 2-2 2.5-5.5 1.5s-6.5 0-6.5 0L31 27.5 28 23s-.5-6.076.5-8c1.251-2.407 5.5-2 5.5-2h7s3.222.5 5-1.5 1.5-3 1.5-3V5L42 1H5.5L1 5v6.5");
+        stroke-dashoffset:0;
     }
 `;
 
 const fb2 = keyframes`
     0% {
-        width: 15px;
-        margin-left:10px;
-    }
-    25%{
-        width: 50px;
-        margin-left:50px;
-    }
-    50%{
-        width: 60px;
-        margin-left:10px;
-        margin-right:15px;
+        opacity:0.5;
+        width: 0px;
+        height: 0px;
+        border: solid 2px #A6F1FE;
     }
     100% {
-        width: 10px;
-        margin-left:10px;
+        opacity:1;
+        width: 6px;
+        height: 6px;
+        border:none;
     }
 `;
 const fb3 = keyframes`
@@ -89,14 +81,11 @@ const fb4 = keyframes`
     
 `;
 const fb5 = keyframes`
-    0% {
-        opacity:0;
-        width: 2px;
-        height: 2px;
-        margin-left:3px;
+    from{ 
+        transform: rotate(0deg);
     }
-    100% {
-        opacity:1;
+    to{            
+        transform: rotate(360deg);
     }
 `;
 
@@ -124,8 +113,7 @@ const CharacterItemContainer = styled.li`
         left:-27px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        // align-items: center;        
+        justify-content: center;     
         width: 185px;
         height: 35px;
         text-align:left;       
@@ -191,7 +179,10 @@ const CharacterItemContainer = styled.li`
             text-orientation: upright;
             font-family: AlienScript-Regular;
             text-transform: uppercase;
-            background: #00B1B7;
+            color:#efefef;
+            font-weight: bold;
+            font-size:0.8rem;
+            background: #00B1B8;
             border: 1px solid #EFEFEF;
             box-sizing: border-box;
             height: 150px;
@@ -206,7 +197,6 @@ const CharacterItemContainer = styled.li`
                 padding: 0;
                 line-height: 22px;
                 &:hover{
-                    font-size:0.8rem;
                     font-family:Narcotix;
                 }
             }
@@ -222,8 +212,8 @@ const CharacterItemContainer = styled.li`
                 width: 100px;
                 height: 120px;
                 margin-top: 10px;
-                background-color: #00B1B7;
-                border: solid 5px #00B1B7;
+                background-color: #00B1B8;
+                border: solid 5px #00B1B8;
                 img{
                     -webkit-clip-path: polygon(10% 0, 90% 0, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0 90%, 0 10%);
                     clip-path: polygon(10% 0, 90% 0, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0 90%, 0 10%);
@@ -240,23 +230,20 @@ const CharacterItemContainer = styled.li`
                 width: 100%;
                 height: 35px;
                 padding-top: 5px;
-                div:nth-child(1){
-                    position:absolute;
-                    left: 5px;
-                    max-width: 110px;
-                    height: 5px;
-                    border-radius:5px;
-                    background-color:#A6F1FE;
-                    animation: ${fb1} 8s linear infinite alternate;
+                svg{
+                    path{
+                        stroke-dasharray: 1;
+                        stroke-dashoffset: 1;
+                        animation: ${fb1} 16s linear infinite alternate;
+                    }
                 }
                 div:nth-child(2){
                     position:absolute;
                     left: 30px;
-                    width: 10px;
-                    height: 10px;
+                    top: 8px;
                     background-color:#A6F1FE;
                     border-radius:50%;
-                    animation: ${fb2} 1.5s linear 1s infinite alternate;
+                    animation: ${fb2} 3s linear 2s infinite alternate;
                 }
                 div:nth-child(3){
                     position:absolute;
@@ -275,18 +262,18 @@ const CharacterItemContainer = styled.li`
                     border: solid 3px #A6F1FE;
                     border-radius:50%;
                     background-color:transparent;
-                    animation: ${fb4} 1.5s linear 5s infinite alternate;
+                    animation: ${fb4} 1.5s linear 4s infinite alternate;
                 }
                 div:nth-child(5){
                     position:absolute;
                     bottom: 5px;
-                    right: 40px;
+                    right: 40px;                       
                     width: 5px;
-                    height: 5px;
-                    border: solid 3px #A6F1FE;
+                    height: 5px;   
+                    border-bottom: solid 2px rgba(166,241,254,0.5);  
+                    border-left: solid 2px #A6F1FE;
                     border-radius:50%;
-                    background-color:transparent;
-                    animation: ${fb5} 1.5s linear 10s infinite alternate;
+                    animation: ${fb5} 3s linear infinite;
                 }
                 
             }
@@ -319,7 +306,7 @@ const CharacterItemContainer = styled.li`
                     width: 13px;    
                 }
                 ::-webkit-scrollbar-thumb  {
-                    background-color: #00B1B7;
+                    background-color: #00B1B8;
                     border-radius: 6px;    
                     border: 0.2rem solid rgba(0, 0, 0, 0);  
                     background-clip: padding-box; 
@@ -329,7 +316,7 @@ const CharacterItemContainer = styled.li`
                 }
                 ::-webkit-scrollbar-track-piece {
                     border-radius: 2px;
-                    background-color: #00B1B7;
+                    background-color: #00B1B8;
                     background-clip: content-box;
                     border-radius: 6px;
                     border: solid 6px transparent;
