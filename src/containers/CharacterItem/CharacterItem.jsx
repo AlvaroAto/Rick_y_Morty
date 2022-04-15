@@ -11,6 +11,7 @@ const CharacterItem = ({ name, sheet, image, vertical, buttonText, handleClick }
         <CharacterItemContainer>
             <div className="textBoxTitle">
                 <strong>{ name }</strong>
+                {/* {(name.length <= 20) ? <strong>{name}</strong> : <marquee behavior="alternate" scrollamount="1">{ name }</marquee>} */}
             </div>
             <div className="card">
                 <div className="verticalText">
@@ -21,6 +22,8 @@ const CharacterItem = ({ name, sheet, image, vertical, buttonText, handleClick }
                         <img src={ image } alt={ name } />
                     </div>
                     <div className="falseButtons">
+                        <div></div>
+                        <div></div>
                         <div></div>
                         <div></div>
                         <div></div>
