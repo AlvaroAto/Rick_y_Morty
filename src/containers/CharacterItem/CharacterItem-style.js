@@ -247,7 +247,6 @@ const CharacterItemContainer = styled.li`
 
                 //barra desplazamiento 
                 ::-webkit-scrollbar {
-                    // display: none;
                     width:10px;
                     height:10px;
                 }
@@ -255,7 +254,9 @@ const CharacterItemContainer = styled.li`
                     height: 4px;
                     width: 4px;
                     background-color: #00B1B7;
-                    border-radius: 6px;                    
+                    border-radius: 6px;    
+                    border: 0.2rem solid rgba(0, 0, 0, 0);  
+                    background-clip: padding-box;                
                   }
                 ::-webkit-scrollbar-button {
                     display:none;
