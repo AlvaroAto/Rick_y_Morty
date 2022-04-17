@@ -19,6 +19,15 @@
   src: local('Alien'), url(./assets/fonts/Alien/Alien.woff2) format('truetype');
 }
 
+@font-face {
+  font-family: 'Get Schwifty';
+  src: url('GetSchwifty-Regular.woff2') format('woff2'),
+      url('GetSchwifty-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   width: 100%;
   margin: 0;
