@@ -359,14 +359,14 @@ const CharacterItemContainer = styled.li`
                 border-radius: 15px;
                 align-self: stretch;
                 cursor:pointer;
-                span{
+                span,a{
                     text-align: center;
                     font-family: PatrickHandSC-Regular; 
                     color: white;
                     font-weight: 600;
                     letter-spacing: 1px;
-                    line-height:1rem;
-                    padding-bottom:3px;
+                    line-height: 1rem;
+                    padding-bottom: 3px;
                 }        
             }
         }

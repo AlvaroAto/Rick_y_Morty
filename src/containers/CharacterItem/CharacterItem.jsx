@@ -6,7 +6,7 @@ import React from "react";
 //styled-components
 import CharacterItemContainer from "./CharacterItem-style";
 
-const CharacterItem = ({ name, sheet, image, vertical, buttonText, handleClick }) => {
+const CharacterItem = ({ name, sheet, image, vertical, handleClick, children }) => {
     return(       
         <CharacterItemContainer>
             <div className="textBoxTitle">
@@ -40,10 +40,12 @@ const CharacterItem = ({ name, sheet, image, vertical, buttonText, handleClick }
                         buttonText={buttonText}
                         onClick={() => handleClick()} 
                     />             */}
-                    <div className="buttonSeeMore" onClick={() => handleClick()}>
-                        <span>{ buttonText }</span>
+                    <div 
+                    className="buttonSeeMore" 
+                    onClick={() => handleClick()}
+                    >
+                        { children }
                     </div>
-                    
                 </div>
             </div>            
         </CharacterItemContainer>        
