@@ -20,9 +20,9 @@
 }
 
 @font-face {
-  font-family: 'Get Schwifty';
-  src: url('GetSchwifty-Regular.woff2') format('woff2'),
-      url('GetSchwifty-Regular.woff') format('woff');
+  font-family: 'GetSchwifty';
+  src: url('./assets/fonts/GetSchwifty/GetSchwifty-Regular.woff2') format('woff2'),
+      url('./assets/fonts/GetSchwifty/GetSchwifty-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
