@@ -30,7 +30,6 @@ function Home() {
     const getCharacterList = async () => {
       const characters = await characterService.getCharacters();
       const result = await characters.data;
-      console.log(result);
       setCharacterList(result);
     }
     getCharacterList();

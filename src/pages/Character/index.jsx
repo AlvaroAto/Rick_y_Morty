@@ -30,9 +30,8 @@ function Characters() {
   useEffect(() => {
     const getCharacterList = async () => {
       const characters = await characterService.getCharacters();
-      const { results } = await characters.data;
-
-      setCharacterList(results);
+      const result = await characters.data;
+      setCharacterList(result);
     }
     getCharacterList();
   },[])
@@ -50,7 +49,7 @@ function Characters() {
       <Main>
           <CharacterList>
               {
-                characterList.map((character, index) => {
+                characterList.results && characterList.results.map((character, index) => {
                   return (
                     <CharacterItem 
                       key={index} 
