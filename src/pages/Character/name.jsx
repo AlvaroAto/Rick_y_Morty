@@ -18,7 +18,7 @@ import { useParams } from "react-router";
 
 const CharacterDetail = () =>{
 
-    const params = useParams;
+    const params = useParams();
     const characterService = useCharacters();
     const [selectedCharacter, setSelectedCharacter] = useState({});
     const [error, setError] = useState("");
@@ -27,7 +27,7 @@ const CharacterDetail = () =>{
         try{
             const characterRequest = await characterService.getCharacter(url);
             const character = await characterRequest.data;
-            
+            console.log(character);
             setSelectedCharacter(character);
         }catch(error){
             setError("Error "+error);
