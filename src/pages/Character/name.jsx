@@ -18,7 +18,7 @@ import { useParams } from "react-router";
 
 const CharacterDetail = () =>{
 
-    const params = useParams;
+    const params = useParams();
     const characterService = useCharacters();
     const [selectedCharacter, setSelectedCharacter] = useState({});
     const [error, setError] = useState("");
@@ -27,7 +27,7 @@ const CharacterDetail = () =>{
         try{
             const characterRequest = await characterService.getCharacter(url);
             const character = await characterRequest.data;
-            
+            console.log(character);
             setSelectedCharacter(character);
         }catch(error){
             setError("Error "+error);
@@ -49,7 +49,14 @@ const CharacterDetail = () =>{
         <section>
                 <>
                     <h2>{selectedCharacter.name}</h2>
-                    {/* datos del personaje */}
+                    <p>{ selectedCharacter.id }</p>
+                    <p>{ selectedCharacter.name }</p>
+                    <p>{ selectedCharacter.status }</p>
+                    <p>{ selectedCharacter.specie } </p>               
+                    <p>{ selectedCharacter.type }</p>
+                    <p>{ selectedCharacter.gender }</p>
+                    <p>{ selectedCharacter.origin[`name`]}</p>
+                    <p>{ selectedCharacter.location[`name`]}</p>
                 </>
         </section>
     </Main>
