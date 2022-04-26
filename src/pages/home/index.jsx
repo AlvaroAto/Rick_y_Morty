@@ -15,6 +15,7 @@ import ModalContent from "../../containers/MainModal/ModalContent/ModalContent";
 import { useModal } from "../../hooks/use-modal";
 import { useCharacters } from '../../services/rickandmorty/rickandmorty-services';
 import MainModal from "../../containers/MainModal/MainModal";
+import PageNavegation from "../../containers/PageNavegation/PageNavegation";
 
 
 function Home() {
@@ -28,9 +29,9 @@ function Home() {
   useEffect(() => {
     const getCharacterList = async () => {
       const characters = await characterService.getCharacters();
-      const { results } = await characters.data;
-
-      setCharacterList(results);
+      const result = await characters.data;
+      console.log(result);
+      setCharacterList(result);
     }
     getCharacterList();
   },[])
@@ -42,13 +43,19 @@ function Home() {
     handleModal(true);
   };
 
+  const handleCharacterPagination = async (url) =>{
+    const character = await characterService.getCharacter(url);
+    const result = await character.data;
+    setCharacterList(result);
+  };
+
   return (
     <Main>      
       <Header />
       <Main>
           <CharacterList>
               {
-                characterList.map((character, index) => {
+                characterList.results && characterList.results.map((character, index) => {
                   return (
                     <CharacterItem 
                       key={index} 
@@ -65,6 +72,14 @@ function Home() {
                 })
               }
           </CharacterList>
+          {
+            characterList.info && <PageNavegation
+              prevUrl={characterList.info.prev}
+              nextUrl={characterList.info.next}
+              onClick={(url)=>handleCharacterPagination(url)}
+            />
+          }
+          
       </Main>
       {
         modalOpened && (
