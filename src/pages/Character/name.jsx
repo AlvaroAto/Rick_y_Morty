@@ -18,7 +18,7 @@ import { useParams } from "react-router";
 
 const CharacterDetail = () =>{
 
-    const { id } = useParams;
+    const params = useParams;
     const characterService = useCharacters();
     const [selectedCharacter, setSelectedCharacter] = useState({});
     const [error, setError] = useState("");
@@ -36,7 +36,7 @@ const CharacterDetail = () =>{
     };
 
     useEffect(()=>{
-        getCharacterInfo(`https://rickandmortyapi.com/api/character/${id}`);
+        getCharacterInfo(`https://rickandmortyapi.com/api/character/${params.id}`);
     },[]);
 
     if(!selectedCharacter.hasOwnProperty('url')){
