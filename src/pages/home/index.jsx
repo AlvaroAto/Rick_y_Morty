@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useSearchParams } from "react";
 
 //assets
 
@@ -10,12 +10,13 @@ import Main from "../../containers/Main/Main";
 import CharacterList from "../../containers/CharactersList/CharactersList";
 import CharacterItem from "../../containers/CharacterItem/CharacterItem";
 import ModalContent from "../../containers/MainModal/ModalContent/ModalContent";
+import Search from "../../containers/Search/Search";
+import MainModal from "../../containers/MainModal/MainModal";
+import PageNavegation from "../../containers/PageNavegation/PageNavegation";
 
 //hooks
 import { useModal } from "../../hooks/use-modal";
 import { useCharacters } from '../../services/rickandmorty/rickandmorty-services';
-import MainModal from "../../containers/MainModal/MainModal";
-import PageNavegation from "../../containers/PageNavegation/PageNavegation";
 
 
 function Home() {
@@ -24,6 +25,11 @@ function Home() {
 
   const [characterList, setCharacterList] = useState([]);
   const [selectedCharacter, setSelectedCharacter] = useState({});
+  // const [search,setSearch] = useState('?name=');
+  const [searchParams,setSearchParams] = useSearchParams();
+
+  const paramsString = '?name=searchParams&gender='; 
+  const searchParams = new URLSearchParams(paramsString);
 
   const characterService = useCharacters();
   useEffect(() => {
@@ -48,10 +54,75 @@ function Home() {
     setCharacterList(result);
   };
 
+  const handleFilter = (e) => {
+    // setSearch(search+'&'+e.target.name+'='+e.target.value);
+    // console.log(search+'&'+e.target.name+'='+e.target.value);
+
+  }
+
+  const handleSearch = (e) =>{
+    e.preventDefault();
+    // setSearch('?name='+e.target.value);
+  }
+
   return (
     <Main>      
       <Header />
       <Main>
+        <Search
+          onSubmit={handleSearch}
+        >
+          <>
+            <input 
+            type="text" 
+            name="search" 
+            placeholder="Search name" 
+            value={search}
+            onChange={(e)=>handleSearch(e)}
+            />
+            <div className="filter">
+              <label className="title">Gender</label>
+              <div className="options">
+                <div className="row">
+                  <input 
+                  type="radio" 
+                  id="male"
+                  name="gender" 
+                  value="Male" 
+                  onChange={(e)=>handleFilter(e)}
+                  />
+                  <label for="male">male</label>
+                  <input 
+                  type="radio" 
+                  id="female"
+                  name="gender" 
+                  value="Female" 
+                  onChange={(e)=>handleFilter(e)}
+                  />
+                  <label for="female">female</label>
+                </div>
+                <div className="row">
+                  <input 
+                  type="radio" 
+                  id="genderless"
+                  name="gender" 
+                  value="Genderless" 
+                  onChange={(e)=>handleFilter(e)}
+                  />
+                  <label for="genderless">genderless</label>
+                  <input 
+                  type="radio" 
+                  id="unknown"
+                  name="gender" 
+                  value="Unknown" 
+                  onChange={(e)=>handleFilter(e)}
+                  />
+                  <label for="unknown">unknown</label>
+                </div>
+              </div>
+            </div>            
+          </>
+        </Search>
           <CharacterList>
               {
                 characterList.results && characterList.results.map((character, index) => {

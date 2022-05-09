@@ -1,13 +1,12 @@
 import styled from "styled-components";
 
-const FormContainer = styled.div`
+const FormDiv = styled.div`
     min-height:100vh;        
     display:flex;
     justify-content: center;
     flex-direction:column;
     align-items:center;
     width:100%;
-
     form{
         display:flex;
         justify-content: center;
@@ -47,4 +46,4 @@ const FormContainer = styled.div`
     }
 `;
 
-export default FormContainer;
+export default FormDiv;

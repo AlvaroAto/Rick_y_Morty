@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 //styled-components
-import FormContainer from './Form-style';
+import FormDiv from './Form-style';
 import HeaderH1 from "../../components/Text/Headers/HeaderH1/HeaderH1";
 
 //containers
@@ -43,10 +43,9 @@ const Contact = ()=>{
     return(
         <Main>
         <Header/>
-        <FormContainer>
+        <FormDiv>
             <HeaderH1>Página de contacto</HeaderH1>
-            <form>
-                
+            <form>                
                 <input 
                     type="text" 
                     name="nombre" 
@@ -65,14 +64,14 @@ const Contact = ()=>{
                     rows="10"                    
                     placeholder='Mensaje'
                     onBlur={(e)=>handleForm(e)}
-                    ></textarea><br></br>
+                    /><br></br>
                 <span onClick={()=>sendForm()}>Enviar</span>
                 <br></br>
                 <label>
                 {errorMessage && (errorMessage) }
                 </label><br></br>
             </form>
-        </FormContainer>
+        </FormDiv>
         </Main>        
     );
 };
