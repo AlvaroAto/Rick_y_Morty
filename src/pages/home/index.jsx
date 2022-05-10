@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useSearchParams } from "react";
+import React, { useState, useEffect } from "react";
 
 //assets
 
@@ -25,12 +25,7 @@ function Home() {
 
   const [characterList, setCharacterList] = useState([]);
   const [selectedCharacter, setSelectedCharacter] = useState({});
-  // const [search,setSearch] = useState('?name=');
-  const [searchParams,setSearchParams] = useSearchParams();
-
-  const paramsString = '?name=searchParams&gender='; 
-  const searchParams = new URLSearchParams(paramsString);
-
+  
   const characterService = useCharacters();
   useEffect(() => {
     const getCharacterList = async () => {
@@ -54,33 +49,22 @@ function Home() {
     setCharacterList(result);
   };
 
-  const handleFilter = (e) => {
-    // setSearch(search+'&'+e.target.name+'='+e.target.value);
-    // console.log(search+'&'+e.target.name+'='+e.target.value);
-
-  }
-
-  const handleSearch = (e) =>{
+  const searchCharacter = async (e) => {
     e.preventDefault();
-    // setSearch('?name='+e.target.value);
+    const character = await characterService.getCharactersFilter(e.target.name.value, e.target.gender.value);
+    const result = await character.data;
+    setCharacterList(result);
   }
 
   return (
     <Main>      
       <Header />
       <Main>
-        <Search
-          onSubmit={handleSearch}
+        <form
+          onSubmit={(e) => searchCharacter(e)}
         >
-          <>
-            <input 
-            type="text" 
-            name="search" 
-            placeholder="Search name" 
-            value={search}
-            onChange={(e)=>handleSearch(e)}
-            />
-            <div className="filter">
+          <input type="text" name="name" />
+          <div className="filter">
               <label className="title">Gender</label>
               <div className="options">
                 <div className="row">
@@ -89,7 +73,6 @@ function Home() {
                   id="male"
                   name="gender" 
                   value="Male" 
-                  onChange={(e)=>handleFilter(e)}
                   />
                   <label for="male">male</label>
                   <input 
@@ -97,7 +80,6 @@ function Home() {
                   id="female"
                   name="gender" 
                   value="Female" 
-                  onChange={(e)=>handleFilter(e)}
                   />
                   <label for="female">female</label>
                 </div>
@@ -107,7 +89,6 @@ function Home() {
                   id="genderless"
                   name="gender" 
                   value="Genderless" 
-                  onChange={(e)=>handleFilter(e)}
                   />
                   <label for="genderless">genderless</label>
                   <input 
@@ -115,16 +96,22 @@ function Home() {
                   id="unknown"
                   name="gender" 
                   value="Unknown" 
-                  onChange={(e)=>handleFilter(e)}
                   />
                   <label for="unknown">unknown</label>
                 </div>
               </div>
-            </div>            
-          </>
-        </Search>
+            </div>
+          <input type="submit" value="buscar"  />
+        </form>
+        
+        {
+          characterService.errorMessage !== '' && (
+            <p>characterService.errorMessage</p>
+          )
+        }
           <CharacterList>
               {
+
                 characterList.results && characterList.results.map((character, index) => {
                   return (
                     <CharacterItem 

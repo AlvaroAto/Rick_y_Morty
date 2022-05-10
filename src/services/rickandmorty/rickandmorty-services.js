@@ -1,10 +1,12 @@
 import { useState } from 'react'; 
 import { getCharactersRequest } from '../../lib/rickandmorty-api/requests/get-Characters-Request'; 
 import { getCharacterRequest } from '../../lib/rickandmorty-api/requests/get-Character-Request';
+import { getCharactersFiltered } from '../../lib/rickandmorty-api/requests/get-Character-Filtered';
 
 export const useCharacters = () => {
     const [loading, setLoading] = useState(true);
     const [characterListError, setCharacterListError] =useState("");
+    const [errorMessage, setErrorMessage] = useState("")
 
     const getCharacters = async () => {
         try{
@@ -28,10 +30,26 @@ export const useCharacters = () => {
         }
     };
 
+    const getCharactersFilter = async (name,gender) => {
+        try{
+            const characterResponse = await getCharactersFiltered(name,gender); 
+            setLoading(false);
+            return characterResponse; 
+        }catch(error){
+            setCharacterListError(error);
+            console.log(error.response.status)
+            const message = error.response.status === 404 ? 'Personaje no encontrado' : 'server error'
+            setErrorMessage(message)
+            setLoading(false);
+        }
+    };
+
     return {
         getCharacters,
         getCharacter,
+        getCharactersFilter,
         loading,
-        characterListError
+        characterListError,
+        errorMessage
     }
 }
