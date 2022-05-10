@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 
+//styled-components
+import IndexContainer from "./home-style";
+
 //assets
 
 //components
@@ -59,8 +62,9 @@ function Home() {
   return (
     <Main>      
       <Header />
-      <Main>
-        <Search
+      <>
+      <IndexContainer>      
+        <form
           onSubmit={(e) => searchCharacter(e)}
         >
           <input type="text" name="name" />
@@ -102,13 +106,12 @@ function Home() {
               </div>
             </div>
           <input type="submit" value="buscar"  />
-        </Search>
-        
+        </form>
+        </IndexContainer>
         {
-          characterService.errorMessage !== '' && (
+          characterService.errorMessage !== '' ? (
             <p>characterService.errorMessage</p>
-          )
-        }
+          ) : (
           <CharacterList>
               {
 
@@ -128,7 +131,9 @@ function Home() {
                   )
                 })
               }
-          </CharacterList>
+          </CharacterList>  
+          )
+        }
           {
             characterList.info && <PageNavegation
               prevUrl={characterList.info.prev}
@@ -137,7 +142,7 @@ function Home() {
             />
           }
           
-      </Main>
+      </>
       {
         modalOpened && (
           <MainModal 

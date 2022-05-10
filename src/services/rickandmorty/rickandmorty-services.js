@@ -37,9 +37,8 @@ export const useCharacters = () => {
             return characterResponse; 
         }catch(error){
             setCharacterListError(error);
-            console.log(error.response.status)
-            const message = error.response.status === 404 ? 'Personaje no encontrado' : 'server error'
-            setErrorMessage(message)
+            const message = error.response.status === 404 ? 'Personaje no encontrado' : 'server error';
+            setErrorMessage(message);
             setLoading(false);
         }
     };
