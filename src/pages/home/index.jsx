@@ -60,7 +60,7 @@ function Home() {
     <Main>      
       <Header />
       <Main>
-        <form
+        <Search
           onSubmit={(e) => searchCharacter(e)}
         >
           <input type="text" name="name" />
@@ -102,7 +102,7 @@ function Home() {
               </div>
             </div>
           <input type="submit" value="buscar"  />
-        </form>
+        </Search>
         
         {
           characterService.errorMessage !== '' && (
