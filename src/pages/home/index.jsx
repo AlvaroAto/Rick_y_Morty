@@ -54,9 +54,13 @@ function Home() {
 
   const searchCharacter = async (e) => {
     e.preventDefault();
+    try{
     const character = await characterService.getCharactersFilter(e.target.name.value, e.target.gender.value);
     const result = await character.data;
     setCharacterList(result);
+    }catch(error){
+      console.log("La busqueda no tiene resultados");
+    }
   }
 
   return (
@@ -110,7 +114,7 @@ function Home() {
         </IndexContainer>
         {
           characterService.errorMessage !== '' ? (
-            <p>characterService.errorMessage</p>
+            <p>{characterService.errorMessage}</p>
           ) : (
           <CharacterList>
               {
