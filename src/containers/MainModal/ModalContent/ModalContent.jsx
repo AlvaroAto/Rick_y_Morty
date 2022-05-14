@@ -13,8 +13,8 @@ const ModalContent = ({ id, name, status, specie, type, gender, origin, location
                 {(specie !== undefined)? <p className="specie">{`Especie: `+ specie }</p> : <p className="specie">{`Especie: -indefinida-` }</p>}
                 {type && <p className="type">{`Tipo: `+ type }</p>}
                 <p className="gender">{`Género: `+ gender }</p>
-                {(origin[`name`] !== undefined)? <p className="origin">{`Origen: `+ origin[`name`] }</p> : <p className="origin">{`Origen: -indefinido-` }</p>}     
-                {(location[`name`] !== undefined)? <p className="location">{`Origen: `+ location[`name`] }</p> : <p className="location">{`Localización: -indefinida-` }</p>}
+                {(origin[`name`] !== undefined)? <p className="origin">{`Origen: `+ origin }</p> : <p className="origin">{`Origen: -indefinido-` }</p>}     
+                {(location[`name`] !== undefined)? <p className="location">{`Origen: `+ location }</p> : <p className="location">{`Localización: -indefinida-` }</p>}
             </div>                                
        </ModalContentContainer>
     );
