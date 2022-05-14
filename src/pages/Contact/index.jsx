@@ -20,6 +20,8 @@ const Contact = ()=>{
             [e.target.name]:e.target.value
         }
         setFormMessage(updateMessage);
+        
+        console.log(errorMessage);
     }
 
     const sendForm = () => {
@@ -39,6 +41,7 @@ const Contact = ()=>{
         }else{
 
         }
+        console.log(errorMessage);
     }
     return(
         <Main>
@@ -67,9 +70,14 @@ const Contact = ()=>{
                     /><br></br>
                 <span onClick={()=>sendForm()}>Enviar</span>
                 <br></br>
-                <label>
-                {errorMessage && (errorMessage) }
-                </label><br></br>
+                {errorMessage !== "" &&
+                    <>
+                        <label>{errorMessage && (errorMessage) }</label>
+                        <br></br>
+                    </>
+                }
+                
+                
             </form>
         </FormDiv>
         </Main>        

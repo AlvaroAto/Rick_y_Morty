@@ -7,6 +7,9 @@ const FormDiv = styled.div`
     flex-direction:column;
     align-items:center;
     width:100%;
+    h1{
+        text-align:center;
+    }
     form{
         display:flex;
         justify-content: center;
