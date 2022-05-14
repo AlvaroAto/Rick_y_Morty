@@ -10,6 +10,7 @@ import loadGif from '../../assets/img/loading-portal.gif';
 import Header from "../../containers/Header/Header";
 import Main from "../../containers/Main/Main";
 // import Section from "../../containers/Section";
+import ModalContent from "../../containers/MainModal/ModalContent/ModalContent";
 
 //hooks
 import { useCharacters } from '../../services/rickandmorty/rickandmorty-services';
@@ -46,19 +47,17 @@ const CharacterDetail = () =>{
   return (  
     <Main>      
         <Header />
-        <section>
-                <>
-                    <h2>{selectedCharacter.name}</h2>
-                    <p>{ selectedCharacter.id }</p>
-                    <p>{ selectedCharacter.name }</p>
-                    <p>{ selectedCharacter.status }</p>
-                    <p>{ selectedCharacter.species } </p>               
-                    <p>{ selectedCharacter.type }</p>
-                    <p>{ selectedCharacter.gender }</p>
-                    <p>{ selectedCharacter.origin[`name`]}</p>
-                    <p>{ selectedCharacter.location[`name`]}</p>
-                </>
-        </section>
+        <ModalContent
+                id={ selectedCharacter.id }
+                name={ selectedCharacter.name }
+                status={ selectedCharacter.status }
+                species={ selectedCharacter.species }                
+                type={ selectedCharacter.type }
+                gender={ selectedCharacter.gender }
+                origin={ selectedCharacter.origin[`name`]}
+                location={ selectedCharacter.location[`name`]}
+              >
+        </ModalContent>
     </Main>
     );
 };

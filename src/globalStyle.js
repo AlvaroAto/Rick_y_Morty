@@ -1,5 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 
+//assets
+import background from './assets/img/fondo_circuito.jpg';
+
 const GlobalStyle = createGlobalStyle`  
 
     body {
@@ -10,7 +13,8 @@ const GlobalStyle = createGlobalStyle`
         font-family: 'PatrickHand-Regular', 'PatrickHandSC-Regular', 'AlienScript-Regular', 'Narcotix','Alien', 'GetSchwifty-Regular'
             sans-serif;
         -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
+        -moz-osx-font-smoothing: grayscale;        
+        background: URL(${ background }) repeat center center ;
     }
               
     a{
