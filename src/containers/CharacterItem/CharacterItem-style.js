@@ -2,23 +2,35 @@ import styled from "styled-components";
 import { keyframes } from "styled-components";
 
 
-const type = keyframes`
-    0% {
-        transform: translate3d(0, 0, 0);
-    }
-    100% {
-        transform: translate3d(-50%, 0, 0);
-    }
-`;
+// const type = keyframes`
+//     0% {
+//         transform: translate3d(0, 0, 0);
+//     }
+//     100% {
+//         transform: translate3d(-50%, 0, 0);
+//     }
+// `;
 
-const marquee = keyframes`
-    from {
-        left: 0;
-    }
-    to{
-        left:-100%;
-    }
-`;
+// const marquee = keyframes`
+//     from {
+//         left: 0;
+//     }
+//     to{
+//         left:-100%;
+//     }
+// `;
+
+// const typing = keyframes`
+//     from {
+//         width: 0;
+//     }
+// `;
+
+// const blink = keyframes`
+//     50% {
+//         border-color: transparent;
+//     }
+// `;
 
 const fb1 = keyframes`    
     0%{
@@ -117,7 +129,7 @@ const CharacterItemContainer = styled.li`
         width: 185px;
         height: 35px;
         text-align:left;       
-        background: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='193' height='36' fill='none' viewBox='0 0 193 36'%3E%3Cpath stroke='%23A6F1FE' stroke-width='2' d='M185 1H4.5l-1 1L1 5v23.5l7 6h177l7-5v-22L185 1Z'/%3E%3C/svg%3E%0A") no-repeat  center /contain;
+        background: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='193' height='36' fill='none' viewBox='0 0 193 36'%3E%3Cpath stroke='%23A6F1FE' stroke-width='2' d='M185 1H4.5l-1 1L1 5v23.5l7 6h177l7-5v-22L185 1Z'/%3E%3C/svg%3E%0A") no-repeat center /contain;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;           
@@ -136,17 +148,21 @@ const CharacterItemContainer = styled.li`
             text-transform: uppercase;
             color: white;
             
-            animation-play-state: paused;
+            // width:300px;
+            // animation: typing 2s step(12), blink .5s infinite step-end altenate;
+
+            // animation-play-state: paused;
             
-            // animation: ${type} 4s steps(60,end);
-            // transition: font-family 1s ease;
+            // animation: $/{type} 4s steps(60,end);
+            transition: all .5s;
             
             &:hover{            
                 position: relative;
-                width: fit-content;
-                transform: translate3d(0, 0, 0);                
-                animation: ${marquee} 12s linear infinite;
-                animation-play-state: play;
+                // transform: translate3d(0, 0, 0);                
+                // width: fit-content;
+                // animation: $/{marquee} 12s linear infinite;
+                // animation-play-state: play;
+                
 
                 font-family:PatrickHand-Regular;
                 text-transform: capitalize;

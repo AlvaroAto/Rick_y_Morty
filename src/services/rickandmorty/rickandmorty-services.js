@@ -30,9 +30,9 @@ export const useCharacters = () => {
         }
     };
 
-    const getCharactersFilter = async (name,gender) => {
+    const getCharactersFilter = async (name,gender,status) => {
         try{
-            const characterResponse = await getCharactersFiltered(name,gender); 
+            const characterResponse = await getCharactersFiltered(name,gender,status); 
             setLoading(false);
             return characterResponse; 
         }catch(error){

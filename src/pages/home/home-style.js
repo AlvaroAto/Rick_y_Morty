@@ -5,6 +5,7 @@ const IndexContainer = styled.div`
     form{
         max-width:100%;
         min-height:fit-content;
+        max-height:100%;
         padding:10px;
         color: #efefef;
         display:flex;    
@@ -17,6 +18,10 @@ const IndexContainer = styled.div`
         font-weight: 600;
         letter-spacing: 1px;
         line-height: 1rem;
+        
+        @media (max-width:581){
+             
+        }
     }
 
     background: linear-gradient(180deg, #C4C4C4 -1.75%, #8AAEAF 81.66%), #FFFFFF;
@@ -43,6 +48,7 @@ const IndexContainer = styled.div`
                 color:#efefef;
             }
             .options{
+                margin-top:5px;
                 .row{
                     display:flex;
                     align-items:center;
