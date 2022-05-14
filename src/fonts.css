@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'PatrickHand-Regular';
+    src: local('PatrickHand-Regular'), url(./assets/fonts/PatrickHand-Regular/PatrickHand-Regular.woff2) format('woff2');
+}
+@font-face {
+    font-family: 'PatrickHandSC-Regular';
+    src: local('PatrickHandSC-Regular'), url(./assets/fonts/PatrickHandSC-Regular/PatrickHandSC-Regular.woff2) format('woff2');
+}
+@font-face {
+    font-family: 'Narcotix';
+    src: local('Narcotix'), url(./assets/fonts/Narcotix/Narcotix.ttf.woff) format('woff');
+}
+@font-face {
+    font-family: 'AlienScript-Regular';
+    src: local('AlienScript-Regular'), url(./assets/fonts/AlienScript-Regular/AlienScript-Regular.woff2) format('woff2');
+}
+@font-face {
+    font-family: 'Alien';
+    src: local('Alien'), url(./assets/fonts/Alien/Alien.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: 'GetSchwifty-Regular';
+    src: local('GetSchwifty-Regular'), url(./assets/fonts/GetSchwifty/GetSchwifty-Regular.woff2) format('woff2');
+}

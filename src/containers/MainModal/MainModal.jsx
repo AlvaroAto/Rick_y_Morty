@@ -1,8 +1,5 @@
 import React from "react";
 
-//components
-// import HeaderH2 from "../../components/Text/Headers/HeaderH2";
-
 //styled-components
 import MainModalContainer from "./MainModal-style";
 
