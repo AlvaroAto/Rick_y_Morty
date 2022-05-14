@@ -52,7 +52,7 @@ const CharacterDetail = () =>{
                     <p>{ selectedCharacter.id }</p>
                     <p>{ selectedCharacter.name }</p>
                     <p>{ selectedCharacter.status }</p>
-                    <p>{ selectedCharacter.specie } </p>               
+                    <p>{ selectedCharacter.species } </p>               
                     <p>{ selectedCharacter.type }</p>
                     <p>{ selectedCharacter.gender }</p>
                     <p>{ selectedCharacter.origin[`name`]}</p>

@@ -8,17 +8,22 @@ const ModalContentContainer = styled.div`
     widht:100%;
     height:100%;
     padding-left: 5px; 
+    font-family: 'PatrickHand-Regular';
     h2{
         margin:0;
         padding:0;
         color:#EFEFEF;
         text-decoration-line: underline;
+        font-family: 'PatrickHandSC-Regular';    
+        text-align:center;    
+        letter-spacing: 1px;
     }
     div.content{
         width:100%;
         height:100%;
         overflow: auto;        
         text-align:left;
+        
         //barra desplazamiento 
         ::-webkit-scrollbar {
             width:10px;
@@ -52,6 +57,12 @@ const ModalContentContainer = styled.div`
         font-size: 18px;
         letter-spacing: 1px;
         line-height:2rem;
+
+        span{
+            letter-spacing: 2px;
+            text-decoration-line: underline;
+            font-weight:bold;
+        }
     }
 
 `;

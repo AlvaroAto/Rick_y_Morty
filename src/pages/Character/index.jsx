@@ -77,7 +77,7 @@ function Characters() {
                 id={ selectedCharacter.id }
                 name={ selectedCharacter.name }
                 status={ selectedCharacter.status }
-                specie={ selectedCharacter.specie }                
+                species={ selectedCharacter.species }                
                 type={ selectedCharacter.type }
                 gender={ selectedCharacter.gender }
                 origin={ selectedCharacter.origin[`name`]}
