@@ -11,7 +11,7 @@ const MainModalContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;    
-
+    overflow:hidden;
     img{
         position: absolute;
         width: 278px;
