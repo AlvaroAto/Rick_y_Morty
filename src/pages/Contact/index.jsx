@@ -11,7 +11,6 @@ import Header from "../../containers/Header/Header";
 
 const Contact = ()=>{
     const [formMessage,setFormMessage] = useState({});
-    //crear variable error,seterror
     const [errorMessage, setErrorMessage] = useState("");
 
     const handleForm = (e) => {
@@ -47,7 +46,7 @@ const Contact = ()=>{
         <Main>
         <Header/>
         <FormDiv>
-            <HeaderH1>Página de contacto</HeaderH1>
+            <HeaderH1>Pagina de contacto</HeaderH1>
             <form>                
                 <input 
                     type="text" 

@@ -13,7 +13,6 @@ import Main from "../../containers/Main/Main";
 import CharacterList from "../../containers/CharactersList/CharactersList";
 import CharacterItem from "../../containers/CharacterItem/CharacterItem";
 import ModalContent from "../../containers/MainModal/ModalContent/ModalContent";
-import Search from "../../containers/Search/Search";
 import MainModal from "../../containers/MainModal/MainModal";
 import PageNavegation from "../../containers/PageNavegation/PageNavegation";
 
@@ -71,101 +70,103 @@ function Home() {
         <form
           onSubmit={(e) => searchCharacter(e)}
         >
-          <input type="text" name="name" />    
-            <div className="filter">
-              <label className="title">Status</label>
-              <div className="options">
-                <div className="row">
-                  <input 
-                    type="radio" 
-                    id="all"
-                    name="status" 
-                    defaultChecked="checked"
-                    value="" 
-                    />
-                  <label htmlFor="all">all</label>
-                  <input 
-                    type="radio" 
-                    id="alive"
-                    name="status" 
-                    value="Alive" 
+          <input type="text" name="name" placeholder="Search by name"/>    
+          <div className="filter">
+            <label className="title">Status</label>
+            <div className="options">
+              <div className="row">
+                <input 
+                  type="radio" 
+                  id="allstatus"
+                  name="status" 
+                  defaultChecked="checked"
+                  value="" 
                   />
-                  <label htmlFor="alive">alive</label>                  
-                </div>
-                <div className="row">   
-                  <input 
-                    type="radio" 
-                    id="dead"
-                    name="status" 
-                    value="Dead" 
-                  />
-                  <label htmlFor="dead">dead</label>               
-                  <input 
-                    type="radio" 
-                    id="unknown"
-                    name="status" 
-                    value="Unknown" 
-                  />
-                  <label htmlFor="unknown">unknown</label>                  
-                  
-                </div>
+                <label htmlFor="all">all</label>
+                <input 
+                  type="radio" 
+                  id="alive"
+                  name="status" 
+                  value="Alive" 
+                />
+                <label htmlFor="alive">alive</label>                  
               </div>
-            </div>        
-            <div className="filter">
-              <label className="title">Gender</label>
-              <div className="options">
-                <div className="row">
-                  <input 
-                    type="radio" 
-                    id="all"
-                    name="gender" 
-                    defaultChecked="checked"
-                    value="" 
-                  />
-                  <label htmlFor="all">all</label>
-                  <input 
-                    type="radio" 
-                    id="male"
-                    name="gender" 
-                    value="Male" 
-                  />
-                  <label htmlFor="male">male</label>
-                  <input 
-                    type="radio" 
-                    id="female"
-                    name="gender" 
-                    value="Female" 
-                  />
-                  <label htmlFor="female">female</label>
-                </div>
-                <div className="row">
-                  <input 
-                    type="radio" 
-                    id="genderless"
-                    name="gender" 
-                    value="Genderless" 
-                  />
-                  <label htmlFor="genderless">genderless</label>
-                  <input 
-                    type="radio" 
-                    id="unknown"
-                    name="gender" 
-                    value="Unknown" 
-                  />
-                  <label htmlFor="unknown">unknown</label>                  
-                </div>
+              <div className="row">   
+                <input 
+                  type="radio" 
+                  id="dead"
+                  name="status" 
+                  value="Dead" 
+                />
+                <label htmlFor="dead">dead</label>               
+                <input 
+                  type="radio" 
+                  id="unknown"
+                  name="status" 
+                  value="Unknown" 
+                />
+                <label htmlFor="unknown">unknown</label>                  
+                
               </div>
             </div>
-          <input type="submit" value="buscar"  />
+          </div>        
+          <div className="filter">
+            <label className="title">Gender</label>
+            <div className="options">
+              <div className="row">
+                <input 
+                  type="radio" 
+                  id="allgender"
+                  name="gender" 
+                  defaultChecked="checked"
+                  value="" 
+                />
+                <label htmlFor="all">all</label>
+                <input 
+                  type="radio" 
+                  id="male"
+                  name="gender" 
+                  value="Male" 
+                />
+                <label htmlFor="male">male</label>
+                <input 
+                  type="radio" 
+                  id="female"
+                  name="gender" 
+                  value="Female" 
+                />
+                <label htmlFor="female">female</label>
+              </div>
+              <div className="row">
+                <input 
+                  type="radio" 
+                  id="genderless"
+                  name="gender" 
+                  value="Genderless" 
+                />
+                <label htmlFor="genderless">genderless</label>
+                <input 
+                  type="radio" 
+                  id="unknown"
+                  name="gender" 
+                  value="Unknown" 
+                />
+                <label htmlFor="unknown">unknown</label>                  
+              </div>
+            </div>
+          </div>
+          <input type="submit" value="buscar" id="buscar" />
         </form>
         </IndexContainer>
         {
+          // section h1, explicacion
+        }
+        {
           characterService.errorMessage !== '' ? (
-            <p>{characterService.errorMessage}</p>
+            <p id="errorSearch">{characterService.errorMessage}</p>
           ) : (
           <CharacterList>
               {
-
                 characterList.results && characterList.results.map((character, index) => {
                   return (
                     <CharacterItem 

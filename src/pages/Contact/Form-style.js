@@ -9,6 +9,7 @@ const FormDiv = styled.div`
     width:100%;
     h1{
         text-align:center;
+        font-family:GetSchwifty-Regular;
     }
     form{
         display:flex;
@@ -26,7 +27,7 @@ const FormDiv = styled.div`
             border:solid 1px #A6F1FE;
             cursor:pointer;            
             color:#efefef;
-            transition: 0.4s;
+            transition: all .4s;
             &:hover{
                 background-color:#A6F1FE;
                 border:solid 5px #00686B;
@@ -44,7 +45,21 @@ const FormDiv = styled.div`
             border-radius:8px;
             cursor:pointer;            
             color:#A6F1FE;
-            transition: 0.4s;            
+            transition: all .4s;            
+        }
+        input,textarea{
+            font-family:PatrickHand-Regular;
+            font-weight:bold;
+            letter-spacing:1px;
+            background-color:#00686B;
+            padding: 5px 20px;        
+            border:solid 3px #A6F1FE;
+            border-radius:8px;        
+            color:#efefef;
+            transition: all .4s; 
+            ::placeholder{
+                color:#efefef;
+            }
         }
     }
 `;

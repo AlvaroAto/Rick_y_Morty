@@ -25,13 +25,18 @@ function Characters() {
 
   const [characterList, setCharacterList] = useState([]);
   const [selectedCharacter, setSelectedCharacter] = useState({});
+  const [error, setError] = useState("");
 
   const characterService = useCharacters();
   useEffect(() => {
     const getCharacterList = async () => {
-      const characters = await characterService.getCharacters();
-      const result = await characters.data;
-      setCharacterList(result);
+      try{
+        const characters = await characterService.getCharacters();
+        const result = await characters.data;      
+        setCharacterList(result);
+      }catch(error){
+        setError("Error "+error);
+      }
     }
     getCharacterList();
   },[])

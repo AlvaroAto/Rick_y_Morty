@@ -375,6 +375,14 @@ const CharacterItemContainer = styled.li`
                 border-radius: 15px;
                 align-self: stretch;
                 cursor:pointer;
+                transition: all .4s;
+                &:hover{
+                    background-color:#AAD5E8;
+                    span, a{    
+                        color: #0A94CF;
+                        text-shadow:0 0 3px #efefef;
+                    }
+                }
                 span,a{
                     text-align: center;
                     font-family: PatrickHandSC-Regular; 
@@ -382,7 +390,7 @@ const CharacterItemContainer = styled.li`
                     font-weight: 600;
                     letter-spacing: 1px;
                     line-height: 1rem;
-                    padding-bottom: 3px;
+                    padding-bottom: 3px;                    
                 }        
             }
         }

@@ -28,11 +28,9 @@ const CharacterDetail = () =>{
         try{
             const characterRequest = await characterService.getCharacter(url);
             const character = await characterRequest.data;
-            console.log(character);
             setSelectedCharacter(character);
         }catch(error){
             setError("Error "+error);
-            console.log(error);
         }
     };
 
@@ -41,7 +39,7 @@ const CharacterDetail = () =>{
     },[]);
 
     if(!selectedCharacter.hasOwnProperty('url')){
-        return <img src={loadGif} alt="cargando..." />
+        return <div id="loading"><img src={loadGif} alt="cargando..." /></div>
     }
 
   return (  
