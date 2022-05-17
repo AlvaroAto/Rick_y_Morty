@@ -34,6 +34,7 @@ export const useCharacters = () => {
         try{
             const characterResponse = await getCharactersFiltered(name,gender,status); 
             setLoading(false);
+            setErrorMessage("");
             return characterResponse; 
         }catch(error){
             setCharacterListError(error);
