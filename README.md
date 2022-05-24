@@ -1,6 +1,7 @@
 # RICK Y MORTY 
+![Rick y morty](./src/assets/img/captura.webp)
 ## Buscador de caracteres
-<img src="/src/assets/img/captura.webp" alt="Captura de la web"/>
+
 
 Este proyecto ha sido creado con [Create React App](https://github.com/facebook/create-react-app).
 
