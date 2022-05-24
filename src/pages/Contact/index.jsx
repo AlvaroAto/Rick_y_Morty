@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useRef} from "react";
+import emailjs from '@emailjs/browser';
 
 //styled-components
 import FormDiv from './Form-style';
@@ -8,10 +9,13 @@ import HeaderH1 from "../../components/Text/Headers/HeaderH1/HeaderH1";
 import Main from "../../containers/Main/Main";
 import Header from "../../containers/Header/Header";
 
-
 const Contact = ()=>{
     const [formMessage,setFormMessage] = useState({});
+    // const Recaptcha = require('react-recaptcha');
+    
+    
     const [errorMessage, setErrorMessage] = useState("");
+    const form = useRef();
 
     const handleForm = (e) => {
         const updateMessage = {
@@ -20,10 +24,10 @@ const Contact = ()=>{
         }
         setFormMessage(updateMessage);
         
-        console.log(errorMessage);
+        // console.log(errorMessage);
     }
 
-    const sendForm = () => {
+    const sendForm = (e) => {
         setErrorMessage('');
         let errores = '';
         if(formMessage.nombre === ''){
@@ -38,16 +42,25 @@ const Contact = ()=>{
         if(errores !== ''){
             setErrorMessage(`El campo `+ errores +` no puede estar vacío`);
         }else{
-
+            emailjs.sendForm('service_c8b97co', 'template_p6lvsyp', form.current, 'Raofmaxp57hHW0a7f')
+            .then((result) => {                
+                setErrorMessage(`Mensaje enviado correctamente`);
+                form.current.reset();
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            });
+            
         }
         console.log(errorMessage);
     }
+  
     return(
         <Main>
         <Header/>
         <FormDiv>
             <HeaderH1>Pagina de contacto</HeaderH1>
-            <form>                
+            <form ref={form}>                
                 <input 
                     type="text" 
                     name="nombre" 
@@ -67,6 +80,7 @@ const Contact = ()=>{
                     placeholder='Mensaje'
                     onBlur={(e)=>handleForm(e)}
                     /><br></br>
+                {/* <Recaptcha class="g-recaptcha" sitekey="6Ld-QhQgAAAAAAAuZzdCndi3a7iWbMoGMYv4jl8v"></Recaptcha> */}
                 <span onClick={()=>sendForm()}>Enviar</span>
                 <br></br>
                 {errorMessage !== "" &&
