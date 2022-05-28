@@ -3,11 +3,13 @@ import emailjs from '@emailjs/browser';
 
 //styled-components
 import FormDiv from './Form-style';
-import HeaderH1 from "../../components/Text/Headers/HeaderH1/HeaderH1";
+import Title from "../../components/Title/Title";
+import FooterLogo from "../../components/FooterLogo/FooterLogo";
 
 //containers
 import Main from "../../containers/Main/Main";
 import Header from "../../containers/Header/Header";
+import Footer from "../../containers/Footer/Footer";
 
 const Contact = ()=>{
     const [formMessage,setFormMessage] = useState({});
@@ -59,7 +61,7 @@ const Contact = ()=>{
         <Main>
         <Header/>
         <FormDiv>
-            <HeaderH1>Pagina de contacto</HeaderH1>
+            <Title title="Formulario de contacto"></Title>
             <form ref={form}>                
                 <input 
                     type="text" 
@@ -93,6 +95,9 @@ const Contact = ()=>{
                 
             </form>
         </FormDiv>
+        <Footer>
+            <FooterLogo />
+        </Footer>
         </Main>        
     );
 };

@@ -15,10 +15,15 @@ import CharacterItem from "../../containers/CharacterItem/CharacterItem";
 import ModalContent from "../../containers/MainModal/ModalContent/ModalContent";
 import MainModal from "../../containers/MainModal/MainModal";
 import PageNavegation from "../../containers/PageNavegation/PageNavegation";
+import Footer from "../../containers/Footer/Footer";
 
 //hooks
 import { useModal } from "../../hooks/use-modal";
 import { useCharacters } from '../../services/rickandmorty/rickandmorty-services';
+import FooterLogo from "../../components/FooterLogo/FooterLogo";
+import Title from "../../components/Title/Title";
+// import SearchBarWrapper from "../../containers/SearchBar/SearchBarWrapper/SearchBarWrapper-style";
+// import SearchBar from "../../containers/SearchBar/SearchBar";
 
 
 function Home() {
@@ -65,7 +70,13 @@ function Home() {
   return (
     <Main>      
       <Header />
-      <>
+      <>      
+      {/* <SearchBarWrapper>
+        <SearchBar
+        onSubmit={(e) => searchCharacter(e)}
+        >
+        </SearchBar>
+      </SearchBarWrapper> */}
       <IndexContainer>      
         <form
           onSubmit={(e) => searchCharacter(e)}
@@ -159,7 +170,7 @@ function Home() {
         </form>
         </IndexContainer>
         {
-          // section h1, explicacion
+          <Title title="Rick and Morty" subtitle="characters" text="preview"></Title>
         }
         {
           characterService.errorMessage !== '' ? (
@@ -217,6 +228,9 @@ function Home() {
           </MainModal>
         )
       }      
+    <Footer>
+      <FooterLogo />
+    </Footer>
     </Main>
   );
 }
