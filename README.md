@@ -1,6 +1,6 @@
 # RICK Y MORTY 
+## Buscador de personajes
 ![Rick y morty](./src/assets/img/captura.webp)
-## Buscador de caracteres
 
 
 Este proyecto ha sido creado con [Create React App](https://github.com/facebook/create-react-app).

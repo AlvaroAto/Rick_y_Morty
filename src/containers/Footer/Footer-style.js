@@ -7,6 +7,7 @@ const FooterContainer = styled.footer`
     width:100%;
     min-heigth:300px;
     margin-top:100px;
+    padding-bottom:20px;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -15,7 +16,7 @@ const FooterContainer = styled.footer`
     background-clip: border-box;
     background-position: center;
     background-size: cover;
-
+    
 `;
 
 export default FooterContainer;

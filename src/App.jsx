@@ -7,6 +7,7 @@ import Contact from './pages/Contact';
 import Home from './pages/home';
 import Characters from './pages/Character/index';
 import CharacterDetail from './pages/Character/name';
+import NotFoundPage from "./pages/NotFound";
 
 import {
   BrowserRouter,
@@ -24,7 +25,7 @@ function App(){
           <Route path="/characters/" element={<Characters />} />
           <Route path="/characters/:id" element={<CharacterDetail />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/404" element={<404 />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
     </BrowserRouter>
   );
