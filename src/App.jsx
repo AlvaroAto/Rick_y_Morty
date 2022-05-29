@@ -24,6 +24,7 @@ function App(){
           <Route path="/characters/" element={<Characters />} />
           <Route path="/characters/:id" element={<CharacterDetail />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/404" element={<404 />} />
         </Routes>
     </BrowserRouter>
   );
