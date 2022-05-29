@@ -3,7 +3,9 @@ import React, { useState, useEffect } from "react";
 //styled-components
 import IndexContainer from "./home-style";
 
+
 //assets
+import loadGif from '../../assets/img/loading-portal.gif';
 
 //components
 
@@ -170,8 +172,12 @@ function Home() {
         </form>
         </IndexContainer>
         {
+            characterService.loading && <div id="loading"><img src={loadGif} alt="cargando..."/></div>            
+        }
+        {
           <Title title="Rick and Morty" subtitle="characters" text="preview"></Title>
         }
+        
         {
           characterService.errorMessage !== '' ? (
             <p id="errorSearch">{characterService.errorMessage}</p>

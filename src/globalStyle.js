@@ -22,12 +22,15 @@ const GlobalStyle = createGlobalStyle`
     a{
         text-decoration: none;
     }
-    .loading{
+    #loading{
         width:100%;
         height:100vh;
         display:flex;
         justify-content:center;
         align-items:center;
+        img{
+            width:90vh;
+        }
     }
     
 `;

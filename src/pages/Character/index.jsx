@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import IndexContainer from "../../pages/home/home-style";
 
 //assets
+import loadGif from '../../assets/img/loading-portal.gif';
 
 //components
 import FooterLogo from "../../components/FooterLogo/FooterLogo";
@@ -162,6 +163,9 @@ function Characters() {
         </form>
         </IndexContainer>
         <Title title="Rick and Morty" subtitle="details from each character"></Title>
+        {
+                characterService.loading && <div id="loading"><img src={loadGif} alt="cargando..."/></div>            
+        }
           <CharacterList>
               {
                 characterList.results && characterList.results.map((character, index) => {

@@ -52,7 +52,7 @@ const CharacterDetail = () =>{
     <Main>      
         <Header />
         <Section>
-            <>
+            <>            
             <Title title={selectedCharacter.name}></Title>
             <Image
                 image={selectedCharacter.image}
