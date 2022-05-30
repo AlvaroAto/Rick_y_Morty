@@ -72,6 +72,9 @@ const IndexContainer = styled.div`
     div{
         &.filter{   
             text-align:center;
+            background-color: rgba(0, 177, 183, 0.7);
+            padding:2px 0 10px 0;
+            border-radius: 8px;
             .title{
                 color:#efefef;                
                 text-shadow: 1px 1px #00B1B7;
