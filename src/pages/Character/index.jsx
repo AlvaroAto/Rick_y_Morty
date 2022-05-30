@@ -8,6 +8,7 @@ import loadGif from '../../assets/img/loading-portal.gif';
 
 //components
 import FooterLogo from "../../components/FooterLogo/FooterLogo";
+import GoToTop from "../../components/Buttons/GoToTop/GoToTop";
 
 //containers
 import Header from "../../containers/Header/Header";
@@ -17,6 +18,7 @@ import CharacterItem from "../../containers/CharacterItem/CharacterItem";
 import ModalContent from "../../containers/MainModal/ModalContent/ModalContent";
 import Title from "../../components/Title/Title";
 import Footer from "../../containers/Footer/Footer";
+import PageNavegation from "../../containers/PageNavegation/PageNavegation";
 
 //hooks
 import { useModal } from "../../hooks/use-modal";
@@ -33,6 +35,7 @@ function Characters() {
   const [characterList, setCharacterList] = useState([]);
   const [selectedCharacter, setSelectedCharacter] = useState({});
   const [error, setError] = useState("");
+  const [showTopBtn, setShowTopBtn] = useState(false);
 
   const characterService = useCharacters();
   useEffect(() => {
@@ -55,6 +58,12 @@ function Characters() {
     handleModal(true);
   };
 
+  const handleCharacterPagination = async (url) =>{
+    const character = await characterService.getCharacter(url);
+    const result = await character.data;
+    setCharacterList(result);
+  };
+
   const searchCharacter = async (e) => {
     e.preventDefault();
     try{
@@ -65,6 +74,22 @@ function Characters() {
       console.log("La busqueda no tiene resultados");
     }
   }
+  useEffect(()=>{
+    window.addEventListener("scroll",()=>{
+      if(window.scrollY > 100){
+        setShowTopBtn(true);
+      }else{
+        setShowTopBtn(false);
+      }
+    });
+  },[]);
+
+  const goToTop = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+    });
+  };
 
   return (
     <Main>      
@@ -166,6 +191,10 @@ function Characters() {
         {
                 characterService.loading && <div id="loading"><img src={loadGif} alt="cargando..."/></div>            
         }
+        {
+          characterService.errorMessage !== '' ? (
+            <p id="errorSearch">{characterService.errorMessage}</p>
+          ) : (
           <CharacterList>
               {
                 characterList.results && characterList.results.map((character, index) => {
@@ -184,6 +213,15 @@ function Characters() {
                 })
               }
           </CharacterList>
+          )
+        }
+          {
+          characterList.info && <PageNavegation
+            prevUrl={characterList.info.prev}
+            nextUrl={characterList.info.next}
+            onClick={(url)=>handleCharacterPagination(url)}
+          />
+        }
       </Main>
       {
         modalOpened && (
@@ -207,6 +245,12 @@ function Characters() {
           </MainModal>
         )
       }      
+      {
+        showTopBtn && <GoToTop
+          color="rgba(0,104,107,.6)"
+          onClick={()=>goToTop()}
+        />          
+      }
       <Footer>
         <FooterLogo />
       </Footer>

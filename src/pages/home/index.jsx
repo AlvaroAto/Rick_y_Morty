@@ -8,7 +8,7 @@ import IndexContainer from "./home-style";
 import loadGif from '../../assets/img/loading-portal.gif';
 
 //components
-
+import GoToTop from "../../components/Buttons/GoToTop/GoToTop";
 //containers
 import Header from "../../containers/Header/Header";
 import Main from "../../containers/Main/Main";
@@ -34,7 +34,8 @@ function Home() {
 
   const [characterList, setCharacterList] = useState([]);
   const [selectedCharacter, setSelectedCharacter] = useState({});
-  
+  const [showTopBtn, setShowTopBtn] =useState(false);
+
   const characterService = useCharacters();
   useEffect(() => {
     const getCharacterList = async () => {
@@ -68,6 +69,23 @@ function Home() {
       console.log("La busqueda no tiene resultados");
     }
   }
+
+  useEffect(()=>{
+    window.addEventListener("scroll",()=>{
+      if(window.scrollY > 100){
+        setShowTopBtn(true);
+      }else{
+        setShowTopBtn(false);
+      }
+    });
+  },[]);
+
+  const goToTop = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+    });
+  };
 
   return (
     <Main>      
@@ -203,13 +221,13 @@ function Home() {
           </CharacterList>  
           )
         }
-          {
-            characterList.info && <PageNavegation
-              prevUrl={characterList.info.prev}
-              nextUrl={characterList.info.next}
-              onClick={(url)=>handleCharacterPagination(url)}
-            />
-          }
+        {
+          characterList.info && <PageNavegation
+            prevUrl={characterList.info.prev}
+            nextUrl={characterList.info.next}
+            onClick={(url)=>handleCharacterPagination(url)}
+          />
+        }
           
       </>
       {
@@ -234,6 +252,12 @@ function Home() {
           </MainModal>
         )
       }      
+      {
+        showTopBtn && <GoToTop
+          color="rgba(0,104,107,.6)"
+          onClick={()=>goToTop()}
+        />          
+      }
     <Footer>
       <FooterLogo />
     </Footer>

@@ -8,7 +8,9 @@ import NotFoundContainer from "./index-style";
 const NotFoundPage=()=>{
     return(
         <NotFoundContainer>
-            <Link to="/">Go to home</Link>
+            <div>
+                <Link to="/">go home</Link>
+            </div>
         </NotFoundContainer>    
     );
 };

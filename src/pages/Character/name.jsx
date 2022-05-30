@@ -7,6 +7,7 @@ import loadGif from '../../assets/img/loading-portal.gif';
 // import HeaderH2 from "../../components/Text/Headers/HeaderH2";
 import FooterLogo from "../../components/FooterLogo/FooterLogo";
 import Image from "../../components/Image/Image";
+import Title from "../../components/Title/Title";
 
 //containers
 import Header from "../../containers/Header/Header";
@@ -15,12 +16,11 @@ import Main from "../../containers/Main/Main";
 import ModalContent from "../../containers/MainModal/ModalContent/ModalContent";
 import Footer from "../../containers/Footer/Footer";
 import Section from "../../containers/Section/Section";
+import ColoredDiv from "../../containers/ColoredDiv/ColoredDiv";
 
 //hooks
 import { useCharacters } from '../../services/rickandmorty/rickandmorty-services';
 import { useParams } from "react-router";
-import Title from "../../components/Title/Title";
-import ColoredDiv from "../../containers/ColoredDiv/ColoredDiv";
 
 
 const CharacterDetail = () =>{
