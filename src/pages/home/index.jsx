@@ -9,6 +9,7 @@ import loadGif from '../../assets/img/loading-portal.gif';
 
 //components
 import GoToTop from "../../components/Buttons/GoToTop/GoToTop";
+
 //containers
 import Header from "../../containers/Header/Header";
 import Main from "../../containers/Main/Main";
@@ -18,7 +19,6 @@ import ModalContent from "../../containers/MainModal/ModalContent/ModalContent";
 import MainModal from "../../containers/MainModal/MainModal";
 import PageNavegation from "../../containers/PageNavegation/PageNavegation";
 import Footer from "../../containers/Footer/Footer";
-
 //hooks
 import { useModal } from "../../hooks/use-modal";
 import { useCharacters } from '../../services/rickandmorty/rickandmorty-services';
@@ -87,14 +87,15 @@ function Home() {
         >
         </SearchBar>
       </SearchBarWrapper> */}
-      
+        
         {
             characterService.loading && <div id="loading"><img src={loadGif} alt="cargando..."/></div>            
         }
         {
           <Title title="Rick and Morty" subtitle="characters" text="preview"></Title>
-        }
-        
+          
+        }       
+      
         {
           characterService.errorMessage !== '' ? (
             <p id="errorSearch">{characterService.errorMessage}</p>

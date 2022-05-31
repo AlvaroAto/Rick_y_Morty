@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 //assets
 import loadGif from '../../assets/img/loading-portal.gif';
+import back from '../../assets/img/back.svg';
 
 //components
 // import HeaderH2 from "../../components/Text/Headers/HeaderH2";
@@ -17,11 +18,14 @@ import ModalContent from "../../containers/MainModal/ModalContent/ModalContent";
 import Footer from "../../containers/Footer/Footer";
 import Section from "../../containers/Section/Section";
 import ColoredDiv from "../../containers/ColoredDiv/ColoredDiv";
+import Div from "../../containers/Div/Div";
 
 //hooks
 import { useCharacters } from '../../services/rickandmorty/rickandmorty-services';
 import { useParams } from "react-router";
 
+//pagination
+import { Link } from 'react-router-dom';
 
 const CharacterDetail = () =>{
 
@@ -74,6 +78,11 @@ const CharacterDetail = () =>{
                     >
                 </ModalContent>
             </ColoredDiv>
+            <Div
+                color="#00686B"
+            >
+                <Link to="/characters"><img src={back} alt="" />back</Link>                
+            </Div>
             </>
         </Section>
         <Footer>
