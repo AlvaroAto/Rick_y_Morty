@@ -58,17 +58,7 @@ function Home() {
     const result = await character.data;
     setCharacterList(result);
   };
-
-  const searchCharacter = async (e) => {
-    e.preventDefault();
-    try{
-    const character = await characterService.getCharactersFilter(e.target.name.value, e.target.gender.value, e.target.status.value);
-    const result = await character.data;
-    setCharacterList(result);
-    }catch(error){
-      console.log("La busqueda no tiene resultados");
-    }
-  }
+  
 
   useEffect(()=>{
     window.addEventListener("scroll",()=>{
@@ -97,98 +87,7 @@ function Home() {
         >
         </SearchBar>
       </SearchBarWrapper> */}
-      <IndexContainer>      
-        <form
-          onSubmit={(e) => searchCharacter(e)}
-        >
-          <input type="text" name="name" placeholder="Search by name"/>    
-          <div className="filter">
-            <label className="title">Status</label>
-            <div className="options">
-              <div className="row">
-                <input 
-                  type="radio" 
-                  id="allstatus"
-                  name="status" 
-                  defaultChecked="checked"
-                  value="" 
-                  />
-                <label htmlFor="all">all</label>
-                <input 
-                  type="radio" 
-                  id="alive"
-                  name="status" 
-                  value="Alive" 
-                />
-                <label htmlFor="alive">alive</label>                  
-              </div>
-              <div className="row">   
-                <input 
-                  type="radio" 
-                  id="dead"
-                  name="status" 
-                  value="Dead" 
-                />
-                <label htmlFor="dead">dead</label>               
-                <input 
-                  type="radio" 
-                  id="unknown"
-                  name="status" 
-                  value="Unknown" 
-                />
-                <label htmlFor="unknown">unknown</label>                  
-                
-              </div>
-            </div>
-          </div>        
-          <div className="filter">
-            <label className="title">Gender</label>
-            <div className="options">
-              <div className="row">
-                <input 
-                  type="radio" 
-                  id="allgender"
-                  name="gender" 
-                  defaultChecked="checked"
-                  value="" 
-                />
-                <label htmlFor="all">all</label>
-                <input 
-                  type="radio" 
-                  id="male"
-                  name="gender" 
-                  value="Male" 
-                />
-                <label htmlFor="male">male</label>
-                <input 
-                  type="radio" 
-                  id="female"
-                  name="gender" 
-                  value="Female" 
-                />
-                <label htmlFor="female">female</label>
-              </div>
-              <div className="row">
-                <input 
-                  type="radio" 
-                  id="genderless"
-                  name="gender" 
-                  value="Genderless" 
-                />
-                <label htmlFor="genderless">genderless</label>
-                <input 
-                  type="radio" 
-                  id="unknown"
-                  name="gender" 
-                  value="Unknown" 
-                />
-                <label htmlFor="unknown">unknown</label>                  
-              </div>
-            </div>
-          </div>
-          <input type="submit" value="buscar" id="buscar" />
-        </form>
-        </IndexContainer>
+      
         {
             characterService.loading && <div id="loading"><img src={loadGif} alt="cargando..."/></div>            
         }
